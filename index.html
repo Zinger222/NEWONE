@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Бърз достъп до финансова помощ</title>
+  <style>
+    /* Минимальная стилизация — подправьте под своё оформление */
+    body { font-family: Arial, sans-serif; background:#f4f6fb; margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    .card { background:#fff; padding:28px; border-radius:12px; box-shadow:0 6px 24px rgba(10,20,40,0.08); width:420px; }
+    h1 { font-size:18px; margin:0 0 12px 0; text-align:center; color:#0b57d0; }
+    label { display:block; margin-top:12px; font-size:13px; color:#333; }
+    input[type="text"], input[type="number"], input[type="tel"], select { width:100%; padding:10px; margin-top:6px; border-radius:6px; border:1px solid #ddd; box-sizing:border-box; }
+    .row { display:flex; gap:10px; }
+    .row .col { flex:1; }
+    .radio-group { margin-top:8px; }
+    .submit { margin-top:18px; width:100%; padding:12px; border-radius:10px; background:#1366ff; color:white; border:none; font-weight:600; cursor:pointer; }
+    .note { font-size:12px; color:#666; margin-top:8px; text-align:left; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Бърз достъп до финансова помощ</h1>
+    <p style="text-align:center; margin:8px 0 18px 0; color:#666;">Попълнете заявката и наш експерт ще се свърже с вас</p>
+
+    <form action="telegram.php" method="post" autocomplete="on">
+      <div class="row">
+        <div class="col">
+          <label for="first_name">Име</label>
+          <input id="first_name" name="first_name" type="text" placeholder="Име" required />
+        </div>
+        <div class="col">
+          <label for="last_name">Фамилия</label>
+          <input id="last_name" name="last_name" type="text" placeholder="Фамилия" />
+        </div>
+      </div>
+
+      <label for="age">Възраст</label>
+      <input id="age" name="age" type="number" min="18" max="120" placeholder="Например: 35" required />
+
+      <label for="total_sum">Обща сума на кредитите (лв.)</label>
+      <input id="total_sum" name="total_sum" type="number" min="0" placeholder="Например: 20000" />
+
+      <label for="monthly_payment">Месечна вноска по кредитите (лв.)</label>
+      <input id="monthly_payment" name="monthly_payment" type="number" min="0" placeholder="Например: 500" />
+
+      <label for="marital">Семейно положение</label>
+      <select id="marital" name="marital">
+        <option value="Неомъжена/Неомъжена">Неомъжена/Неомъжена</option>
+        <option value="Женен/Семейство">Женен/Семейство</option>
+        <option value="Разведен/Разведена">Разведен/Разведена</option>
+        <option value="Вдовица/Вдовец">Вдовица/Вдовец</option>
+      </select>
+
+      <label>Имате ли недвижимо имущество?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="property" value="Да" checked> Да</label>
+        <label style="margin-left:12px;"><input type="radio" name="property" value="Не"> Не</label>
+      </div>
+
+      <label for="phone">Телефонен номер</label>
+      <input id="phone" name="phone" type="tel" placeholder="+359XXXXXXXXX" pattern="^\+?[0-9\s\-]{6,20}$" required />
+
+      <p class="note">Вашите данни са защитени. Ще бъдат използвани само за връзка с вас.</p>
+
+      <button type="submit" class="submit">Изпрати заявка</button>
+    </form>
+  </div>
+</body>
+</html>
